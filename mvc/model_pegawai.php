@@ -37,14 +37,17 @@ class model_pegawai{
 
     function tambah($nip, $nama){
       $query =  mysqli_query($this-> konek, "insert into pegawai values('$nip', '$nama')");
+      return $query;
     }
 
     function update($nip, $nama){
       $query =  mysqli_query($this-> konek, "update pegawai set nama='$nama' where nip = '$nip'");
+      return $query;
     }
 
     function delete($nip){
       $query =  mysqli_query($this-> konek, "delete from pegawai where nip = '$nip'");
+      return $query;
     }
 }
 

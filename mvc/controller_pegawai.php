@@ -12,22 +12,17 @@ class controller_pegawai{
         $view_pegawai = new view_pegawai();
         $view_pegawai->show_pegawai($data);
     }
+
+    //panggil update untuk edit data di database
     function update($nip, $nama){
       $model_pegawai = new model_pegawai();
-      $model_pegawai-> update($nip,$nama);
+      $berhasil = new view_pegawai();
 
-      echo "berhasil! <a href=\"pegawai.php\">kembali ke halaman awal</a>";
-
-
-    }
-
-    function delete($nip){
-      $model_pegawai = new model_pegawai();
-      $model_pegawai-> delete($nip);
-      echo "berhasil! <a href=\"pegawai.php\">kembali ke halaman awal</a>";
+      $berhasil-> berhasil($model_pegawai-> update($nip,$nama));
 
     }
 
+    //panggil halaman edit
     function edit($nip){
         $model_pegawai = new model_pegawai();
         $data= $model_pegawai->getBynip($nip);
@@ -35,11 +30,24 @@ class controller_pegawai{
         $view_pegawai->edit_pegawai($data);
     }
 
+
+    //panggil delete untuk hapus data di database
+    function delete($nip){
+      $model_pegawai = new model_pegawai();
+      $berhasil = new view_pegawai();
+      $berhasil-> berhasil($model_pegawai-> delete($nip));
+    }
+
+
     function tambah(){
       $view_pegawai = new view_pegawai();
       $view_pegawai->tambah_pegawai();
-      echo "berhasil! <a href=\"pegawai.php\">kembali ke halaman awal</a>";
+    }
 
+    function addon($nip, $nama){
+      $model_pegawai = new model_pegawai();
+      $berhasil = new view_pegawai();
+      $berhasil-> berhasil($model_pegawai-> tambah($nip, $nama));
     }
 }
 

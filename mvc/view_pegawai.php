@@ -24,7 +24,7 @@
           }
 
             echo "
-            <form action=\"edit_pegawai.php\" method=\"post\">
+            <form action=\"pegawai_edit.php\" method=\"post\">
               nip: <input type=\"text\" name=\"nip\" value=\"$nip\" readonly>
               nama: <input type=\"text\" name=\"nama\" value=\"$nama\">
               <button type=\"submit\" name=\"submit\">submit</button> </br>
@@ -32,14 +32,27 @@
             ";
         }
 
+        function berhasil($x){
+          if($x){
+            echo "berhasil! <a href=\"pegawai.php\">kembali ke halaman awal</a>";
+          }else{
+            echo "gagal! <a href=\"pegawai.php\">kembali ke halaman awal</a>";
+          }
+        }
+
         function tambah_pegawai(){
             echo "
-            <form action=\"pegawai_tambah.php\" method=\"post\">
+            <form action=\"tambah_pegawai.php\" method=\"post\">
               nip: <input type=\"text\" name=\"nip\" >
               nama: <input type=\"text\" name=\"nama\" >
               <button type=\"submit\" name=\"submit\">submit</button> </br>
             </form>
             ";
+        }
+
+        function hapus_pegawai(){
+          echo "berhasil! <a href=\"pegawai.php\">kembali ke halaman awal</a>";
+
         }
     }
 ?>
